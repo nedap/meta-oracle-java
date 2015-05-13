@@ -30,3 +30,4 @@ INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
 FILES_${PN} = "/usr/"
 RPROVIDES_${PN} = "java2-runtime"
+PROVIDES += "virtual/java"
