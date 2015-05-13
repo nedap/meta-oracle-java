@@ -27,3 +27,4 @@ do_install_class-native() {
 BBCLASSEXTEND = "native"
 
 RPROVIDES_${PN} += "java2-development"
+PROVIDES += "virtual/javac virtual/java-initial"
