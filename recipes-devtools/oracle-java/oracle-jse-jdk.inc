@@ -12,9 +12,16 @@ JDK_JRE = "jdk"
 require oracle-jse.inc
 
 do_install_class-native() {
-    install -d -m 0755                      ${D}${bindir}/${JDK_JRE}${PV}_${PV_UPDATE}
-    cp -a ${S}/${JDK_JRE}${PV}_${PV_UPDATE} ${D}${bindir}/
-    ln -sf ${JDK_JRE}${PV}_${PV_UPDATE}     ${D}${bindir}/java
+    install -d -m 0755 ${D}${libdir}
+    install -d -m 0755 ${D}${bindir}
+    cp -a ${S}/${JDK_JRE}${PV}_${PV_UPDATE} ${D}${libdir}/
+    for prog in java javac; do
+	( cd ${D}${bindir} && ln -sf ${D}${libdir}/${JDK_JRE}${PV}_${PV_UPDATE}/bin/$prog )
+    done
+
+    ( cd ${D}${libdir}/${JDK_JRE}${PV}_${PV_UPDATE}/bin ; \
+      ln -sf javah gjavah ; \
+      ln -sf jar fastjar )
 }
 
 BBCLASSEXTEND = "native"
