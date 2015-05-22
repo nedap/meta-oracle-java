@@ -29,5 +29,5 @@ INSANE_SKIP_${PN} = "${ERROR_QA} ${WARN_QA}"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
 FILES_${PN} = "/usr/"
-RPROVIDES_${PN} = "java2-runtime"
+RPROVIDES_${PN} = "java2-runtime java2-vm"
 PROVIDES += "virtual/java"
