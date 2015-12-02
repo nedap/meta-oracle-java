@@ -16,7 +16,7 @@ do_install_class-native() {
     install -d -m 0755 ${D}${bindir}
     cp -a ${S}/${JDK_JRE}${PV}_${PV_UPDATE} ${D}${libdir}/
     for prog in java javac; do
-	( cd ${D}${bindir} && ln -sf ${D}${libdir}/${JDK_JRE}${PV}_${PV_UPDATE}/bin/$prog )
+	( cd ${D}${bindir} && ln -sf ${libdir}/${JDK_JRE}${PV}_${PV_UPDATE}/bin/$prog )
     done
 
     ( cd ${D}${libdir}/${JDK_JRE}${PV}_${PV_UPDATE}/bin ; \
