@@ -8,6 +8,7 @@ LIC_FILES_CHKSUM = "\
 
 FETCHCMD_wget_append = " --header=Cookie:oraclelicense=a "
 
+RDEPENDS_${PN} += " libasound atk cairo gdk-pixbuf mesa gtk+ libxtst libxi"
 # get the java update version in the resulting package
 PR =. "u${PV_UPDATE}"
 S = "${WORKDIR}"
