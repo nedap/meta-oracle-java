@@ -21,8 +21,6 @@ JDK_HOME = "${libdir_jvm}/${JDK_DIR}"
 do_install () {
 	install -d -m 0755			${D}${libdir_jvm}
 	cp -a ${S}/${JDK_JRE}${PV}_${PV_UPDATE}	${D}${JDK_HOME}
-	install -d -m 0755			${D}${bindir}
-	ln -sf ${JDK_HOME}/bin/java		${D}${bindir}/java
 }
 
 # All the files are provided in a binaray package, and keeping all the
@@ -36,3 +34,13 @@ INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 FILES_${PN} = "/usr/"
 RPROVIDES_${PN} = "java2-runtime java2-vm"
 PROVIDES += "virtual/java"
+
+inherit update-alternatives
+
+pkg_postinst_${PN} () {
+	update-alternatives --install ${bindir}/java java ${JDK_HOME}/jre/bin/java 75
+}
+
+pkg_prerm_${PN} () {
+	update-alternatives --remove java ${JDK_HOME}/jre/bin/java
+}
