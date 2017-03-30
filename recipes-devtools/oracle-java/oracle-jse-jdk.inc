@@ -25,3 +25,17 @@ BBCLASSEXTEND = "native"
 
 RPROVIDES_${PN} += "java2-development"
 PROVIDES += "virtual/javac virtual/java-initial"
+
+pkg_postinst_${PN} () {
+	update-alternatives --install ${bindir}/jar   jar   ${JDK_HOME}/bin/jar 100
+	update-alternatives --install ${bindir}/java  java  ${JDK_HOME}/jre/bin/java 100
+	update-alternatives --install ${bindir}/javac javac ${JDK_HOME}/jre/bin/javac 100
+	update-alternatives --install ${bindir}/javah javah ${JDK_HOME}/bin/javah 100
+}
+
+pkg_prerm_${PN} () {
+	update-alternatives --remove jar   ${JDK_HOME}/jre/bin/jar
+	update-alternatives --remove java  ${JDK_HOME}/jre/bin/java
+	update-alternatives --remove javac ${JDK_HOME}/jre/bin/javac
+	update-alternatives --remove javah ${JDK_HOME}/jre/bin/javah
+}
