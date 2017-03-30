@@ -14,11 +14,15 @@ RDEPENDS_${PN} += " libasound atk cairo gdk-pixbuf mesa gtk+ libxtst libxi"
 PR =. "u${PV_UPDATE}"
 S = "${WORKDIR}"
 
+libdir_jvm ?= "${libdir}/jvm"
+JDK_DIR = "java-8-oracle"
+JDK_HOME = "${libdir_jvm}/${JDK_DIR}"
+
 do_install () {
-	install -d -m 0755					${D}${datadir}/${JDK_JRE}${PV}_${PV_UPDATE}
-	cp -a ${S}/${JDK_JRE}${PV}_${PV_UPDATE}			${D}${datadir}/
-	install -d -m 0755					${D}${bindir}
-	ln -sf ${datadir}/${JDK_JRE}${PV}_${PV_UPDATE}/bin/java ${D}${bindir}/java
+	install -d -m 0755			${D}${libdir_jvm}
+	cp -a ${S}/${JDK_JRE}${PV}_${PV_UPDATE}	${D}${JDK_HOME}
+	install -d -m 0755			${D}${bindir}
+	ln -sf ${JDK_HOME}/bin/java		${D}${bindir}/java
 }
 
 # All the files are provided in a binaray package, and keeping all the
