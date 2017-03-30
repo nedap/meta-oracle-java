@@ -31,7 +31,10 @@ INSANE_SKIP_${PN} = "${ERROR_QA} ${WARN_QA}"
 # Inhibit warnings about files being stripped, we can't do anything about it.
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
-FILES_${PN} = "/usr/"
+PACKAGES = "${PN}-sources ${PN}"
+FILES_${PN}-sources = "${JDK_HOME}/src.zip"
+FILES_${PN} = "${JDK_HOME}"
+
 RPROVIDES_${PN} = "java2-runtime java2-vm"
 PROVIDES += "virtual/java"
 
