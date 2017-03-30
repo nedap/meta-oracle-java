@@ -11,7 +11,15 @@ DESCRIPTION = "This is the proprietary JRE from Sun/Oracle, with the Hotspot JVM
 JDK_JRE = "ejre"
 require oracle-jse.inc
 
+DEPENDS = "virtual/java-native"
+
 LIC_FILES_CHKSUM = "\
-       file://${JDK_JRE}${PV}_${PV_UPDATE}/COPYRIGHT;md5=be9fe5d47a7dcfb78f142f487afb34bb \
-       file://${JDK_JRE}${PV}_${PV_UPDATE}/THIRDPARTYLICENSEREADME.txt;md5=f3a388961d24b8b72d412a079a878cdb \
-       "
+	file://${LICENSE_DIR}/COPYRIGHT;md5=3dc1bfbd5bed75d650ad0506a0df5930 \
+	file://${LICENSE_DIR}/THIRDPARTYLICENSEREADME.txt;md5=745d6db5fc58c63f74ce6a7d4db7e695 \
+	"
+
+do_compile() {
+	DEST=${S}/ejre${PV}_${PV_UPDATE}
+	rm -rf ${DEST}
+	JAVA_HOME=${STAGING_DIR_NATIVE}/${JDK_HOME} ejdk${PV}_${PV_UPDATE}/bin/jrecreate.sh --dest ${DEST}
+}
