@@ -1,11 +1,11 @@
-PV_UPDATE = "91"
-BUILD_NUMBER = "14"
+PV_UPDATE = "121"
+BUILD_NUMBER = "13"
 
 require oracle-jse-jdk.inc
 
-SRC_URI = "http://download.oracle.com/otn-pub/java/jdk/8u${PV_UPDATE}-b${BUILD_NUMBER}/jdk-8u${PV_UPDATE}-linux-i586.tar.gz"
+SRC_URI = "http://download.oracle.com/otn-pub/java/jdk/8u${PV_UPDATE}-b${BUILD_NUMBER}/e9e7ea248e2c4826b92b3f075a80e441/jdk-8u${PV_UPDATE}-linux-i586.tar.gz"
 
-SRC_URI[md5sum] = "f18cbe901f2c77630f1e301cea32b259"
-SRC_URI[sha256sum] = "5ecd05b5e566cbe688fc1e3159f04004ccad14d4faa3f50d15ffba1d50b4cd52"
+SRC_URI[md5sum] = "9e0e84f36427ce258abfca35fbeb0c55"
+SRC_URI[sha256sum] = "f7d6cf1468c5e71ff097bec0189caccdd8e709a2a88a2c9849ad6200c0f33d4c"
 
 COMPATIBLE_HOST = "(i586.*-linux)"
