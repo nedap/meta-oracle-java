@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "\
 	file://${JDK_JRE}${PV}_${PV_UPDATE}/THIRDPARTYLICENSEREADME.txt;md5=745d6db5fc58c63f74ce6a7d4db7e695 \
 	"
 
-FETCHCMD_wget_append = " --header=Cookie:oraclelicense=a "
+FETCHCMD_wget_append = " --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' "
 
 RDEPENDS_${PN} += " libasound atk cairo gdk-pixbuf mesa gtk+ libxtst libxi"
 # get the java update version in the resulting package
