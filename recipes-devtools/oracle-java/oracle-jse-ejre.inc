@@ -19,7 +19,7 @@ LIC_FILES_CHKSUM = "\
 	"
 
 do_compile() {
-	DEST=${S}/ejre${PV}_${PV_UPDATE}
+	DEST=${S}/ejre${PV}_${PV_UPDATE}/jre
 	rm -rf ${DEST}
 	JAVA_HOME=${STAGING_DIR_NATIVE}/${JDK_HOME} ejdk${PV}_${PV_UPDATE}/bin/jrecreate.sh --dest ${DEST}
 }
