@@ -12,11 +12,14 @@ JDK_JRE = "jdk"
 require oracle-jse.inc
 
 do_install_class-native() {
-	install -d -m 0755			${D}${libdir_jvm}
+	install -d				${D}${libdir_jvm}
 	cp -a ${S}/${JDK_JRE}${PV}_${PV_UPDATE}	${D}${JDK_HOME}
 
+	install -d				${D}${bindir}
 	ln -sf ${JDK_HOME}/bin/java		${D}${bindir}
 	ln -sf ${JDK_HOME}/bin/javac		${D}${bindir}
+
+	install -d				${D}${JDK_HOME}/bin
 	ln -sf javah				${D}${JDK_HOME}/bin/gjavah
 	ln -sf jar				${D}${JDK_HOME}/bin/fastjar
 }
@@ -28,14 +31,14 @@ PROVIDES += "virtual/javac virtual/java-initial"
 
 pkg_postinst_${PN} () {
 	update-alternatives --install ${bindir}/jar   jar   ${JDK_HOME}/bin/jar 100
-	update-alternatives --install ${bindir}/java  java  ${JDK_HOME}/jre/bin/java 100
-	update-alternatives --install ${bindir}/javac javac ${JDK_HOME}/jre/bin/javac 100
+	update-alternatives --install ${bindir}/java  java  ${JDK_HOME}/bin/java 100
+	update-alternatives --install ${bindir}/javac javac ${JDK_HOME}/bin/javac 100
 	update-alternatives --install ${bindir}/javah javah ${JDK_HOME}/bin/javah 100
 }
 
 pkg_prerm_${PN} () {
-	update-alternatives --remove jar   ${JDK_HOME}/jre/bin/jar
-	update-alternatives --remove java  ${JDK_HOME}/jre/bin/java
-	update-alternatives --remove javac ${JDK_HOME}/jre/bin/javac
-	update-alternatives --remove javah ${JDK_HOME}/jre/bin/javah
+	update-alternatives --remove jar   ${JDK_HOME}/bin/jar
+	update-alternatives --remove java  ${JDK_HOME}/bin/java
+	update-alternatives --remove javac ${JDK_HOME}/bin/javac
+	update-alternatives --remove javah ${JDK_HOME}/bin/javah
 }

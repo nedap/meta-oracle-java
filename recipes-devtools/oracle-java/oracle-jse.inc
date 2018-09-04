@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "\
 	file://${JDK_JRE}${PV}_${PV_UPDATE}/LICENSE;md5=98f46ab6481d87c4d77e0e91a6dbc15f \
 	file://${JDK_JRE}${PV}_${PV_UPDATE}/COPYRIGHT;md5=3dc1bfbd5bed75d650ad0506a0df5930 \
 	file://${JDK_JRE}${PV}_${PV_UPDATE}/THIRDPARTYLICENSEREADME.txt;md5=745d6db5fc58c63f74ce6a7d4db7e695 \
-	file://${JDK_JRE}${PV}_${PV_UPDATE}/THIRDPARTYLICENSEREADME-JAVAFX.txt;md5=ab9db8d553033c0326bd2d38d77f84c1 \
+	file://${JDK_JRE}${PV}_${PV_UPDATE}/THIRDPARTYLICENSEREADME-JAVAFX.txt;md5=4f31cd1a5d86744d5f00666d9a57ad2a \
 	"
 
 FETCHCMD_wget_append = " --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' "
@@ -41,9 +41,9 @@ PROVIDES += "virtual/java"
 inherit update-alternatives
 
 pkg_postinst_${PN} () {
-	update-alternatives --install ${bindir}/java java ${JDK_HOME}/jre/bin/java 75
+	update-alternatives --install ${bindir}/java java ${JDK_HOME}/bin/java 75
 }
 
 pkg_prerm_${PN} () {
-	update-alternatives --remove java ${JDK_HOME}/jre/bin/java
+	update-alternatives --remove java ${JDK_HOME}/bin/java
 }
