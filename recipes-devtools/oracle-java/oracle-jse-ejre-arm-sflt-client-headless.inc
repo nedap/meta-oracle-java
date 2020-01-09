@@ -1,5 +1,5 @@
 PV_UPDATE = "211"
-BUILD_NUMBER = "13"
+BUILD_NUMBER = "12"
 LICENSE_DIR = "ejdk${PV}_${PV_UPDATE}/linux_arm_sflt/jre"
 
 require oracle-jse-ejre.inc
