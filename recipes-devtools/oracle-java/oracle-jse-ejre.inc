@@ -14,8 +14,8 @@ require oracle-jse.inc
 DEPENDS = "virtual/java-native"
 
 LIC_FILES_CHKSUM = "\
-	file://${LICENSE_DIR}/COPYRIGHT;md5=3dc1bfbd5bed75d650ad0506a0df5930 \
-	file://${LICENSE_DIR}/THIRDPARTYLICENSEREADME.txt;md5=745d6db5fc58c63f74ce6a7d4db7e695 \
+	file://${LICENSE_DIR}/COPYRIGHT;md5=a762796b2a8989b8952b653a178607a1 \
+	file://${LICENSE_DIR}/THIRDPARTYLICENSEREADME.txt;md5=6965eeef8a55556bb1dded43bca822dd \
 	"
 
 do_compile() {
